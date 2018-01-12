@@ -10,6 +10,11 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    if user_signed_in?
+      @like = Like.where(user_id: current_user.id, post_id: params[:id])
+    else
+      @like = []
+    end
   end
 
   # GET /posts/new
@@ -58,6 +63,16 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def user_like_post
+    @like = Like.where(user_id: current_user.id, post_id: params[:post_id]).first
+
+    unless @like.nil?
+      @like.destroy
+    else
+      @like = Like.create(user_id: current_user.id, post_id: params[:post_id])
     end
   end
 

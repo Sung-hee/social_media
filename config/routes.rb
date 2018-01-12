@@ -2,6 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
   resources :posts
   root 'posts#index'
+
+  resources :posts do
+    collection do
+      get '/:posts_id/like' => 'posts#user_like_post', as: :user_like
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

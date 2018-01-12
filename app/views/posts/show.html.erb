@@ -26,4 +26,23 @@
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Back', posts_path %> |
+
+<% if @like.length > 0 %>
+  <button type="button" class="like">좋아요(<span id="like-count"><%= @post.likes.count %></span>)</button>
+<% else %>
+  <button type="button" class="like">좋아요(<span id="like-count"><%= @post.likes.length %></span>)</button>
+<% end %>
+
+<% content_for :script do %>
+  <script>
+    $(function() {
+      $('.like').on('click', function() {
+        $.ajax({
+          url: 'posts/<%= @post.id %>/like',
+          method: 'GET'
+        })
+      })
+    })
+  </script>
+<% end %>
