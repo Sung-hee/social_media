@@ -1,4 +1,12 @@
 source 'https://rubygems.org'
+gem 'devise'
+gem 'cancancan'
+gem 'rolify'
+gem 'carrierwave', '~> 1.0'
+gem 'pry-rails'
+gem 'meta_request'
+gem 'devise-i18n'
+gem "mini_magick"
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -43,5 +51,8 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-end
+  gem 'rails_db'
+  gem 'awesome_print'
+  gem 'better_errors'
 
+end
