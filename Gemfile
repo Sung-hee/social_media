@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'figaro'
+
 gem 'devise'
 # naver login
 gem 'omniauth-naver'
