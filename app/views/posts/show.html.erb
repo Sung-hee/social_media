@@ -16,8 +16,18 @@
 </p>
 
 <p>
+<<<<<<< HEAD
   <strong>Image:</strong>
   <img src="<%= @post.image.small %>">
+=======
+  <strong>Post image:</strong>
+  <td><img src="<%= @post.post_image %>" width="400" height="300"></td>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @post.user_id %>
+>>>>>>> 30372491eaa60629d10e2933c66dd101223f9070
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

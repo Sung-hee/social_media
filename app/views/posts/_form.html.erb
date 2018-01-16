@@ -1,9 +1,16 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 30372491eaa60629d10e2933c66dd101223f9070
 <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<<<<<<< HEAD
       <%#= form_for @user, : url => users_path, :html => {:multipart => true} do |f| %>
+=======
+
+>>>>>>> 30372491eaa60629d10e2933c66dd101223f9070
       <ul>
       <% @post.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -25,8 +32,13 @@
     <%= f.text_field :tag %>
   </div>
   <div class="field">
+<<<<<<< HEAD
     <%= f.label :content %><br>
     <%= f.file_field :image %>
+=======
+    <%= f.label :post_image %><br>
+    <%= f.file_field :post_image %>
+>>>>>>> 30372491eaa60629d10e2933c66dd101223f9070
   </div>
   <div class="actions">
     <%= f.submit %>

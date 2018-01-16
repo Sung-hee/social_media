@@ -11,14 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20180115082410) do
+=======
+ActiveRecord::Schema.define(version: 20180112064421) do
+>>>>>>> 30372491eaa60629d10e2933c66dd101223f9070
 
   create_table "posts", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
     t.string   "tag"
+<<<<<<< HEAD
     t.integer  "user_id"
     t.string   "image"
+=======
+    t.string   "post_image"
+    t.integer  "user_id"
+>>>>>>> 30372491eaa60629d10e2933c66dd101223f9070
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

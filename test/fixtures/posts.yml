@@ -4,10 +4,18 @@ one:
   title: MyString
   content: MyText
   tag: MyString
+<<<<<<< HEAD
+=======
+  post_image: MyString
+>>>>>>> 30372491eaa60629d10e2933c66dd101223f9070
   user_id: 1
 
 two:
   title: MyString
   content: MyText
   tag: MyString
+<<<<<<< HEAD
+=======
+  post_image: MyString
+>>>>>>> 30372491eaa60629d10e2933c66dd101223f9070
   user_id: 1

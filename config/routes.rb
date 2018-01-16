@@ -2,8 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :posts
   root 'posts#index'
+<<<<<<< HEAD
   get 'posts/show/:id' => 'posts#show'
 
+=======
+>>>>>>> 30372491eaa60629d10e2933c66dd101223f9070
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

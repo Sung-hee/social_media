@@ -7,9 +7,13 @@ gem 'pry-rails'
 gem 'meta_request'
 gem 'devise-i18n'
 gem "mini_magick"
-gem 'pg'
-gem "fog-aws"
+<<<<<<< HEAD
+# gem 'pg'
+# gem "fog-aws"
 gem 'figaro'
+=======
+
+>>>>>>> 30372491eaa60629d10e2933c66dd101223f9070
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.9'
