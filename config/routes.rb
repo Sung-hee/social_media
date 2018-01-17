@@ -1,8 +1,18 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :posts
+  resources :posts do
+    member do
+      post '/comments' => 'posts#create_comment', as: :create_comment_to
+      delete '/comments/:comment_id' => 'posts#delete_comment', as: :delete_comment_to
+      patch '/comments/:comment_id' => 'posts#update_comment', as: :update_comment_to
+    end
+
+    collection do
+      get '/:post_id/like' => 'posts#user_like_post', as: :user_like
+    end
+  end
   root 'posts#index'
-  get 'posts/show/:id' => 'posts#show'
+  # get 'posts/show/:id' => 'posts#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
