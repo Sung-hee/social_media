@@ -1,0 +1,53 @@
+<link rel="stylesheet" href="../assets/css/main.css" />
+<!-- Main -->
+<div id="main">
+	<div class="inner">
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a>
+			</header>
+		<!-- Banner -->
+			<section id="banner">
+				<div class="content">
+					<header>
+						<h1>Hi, I’m Editorial<br />
+						by HTML5 UP</h1>
+						<p>A free and fully responsive site template</p>
+					</header>
+					<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+            <%= devise_error_messages! %>
+
+            <div class="field">
+              <%= f.label :email %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", style: "width: 50%", placeholder: "이메일을 입력하세요."  %>
+            </div>
+
+            <div class="field">
+              <%= f.label :password %>
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %>
+              <%= f.password_field :password, autocomplete: "off", style: "width: 50%", placeholder: "비밀번호를 입력하세요."  %>
+            </div>
+            <div class="field">
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation, autocomplete: "off", style: "width: 50%", placeholder: "비밀번호를 확인하세요."  %>
+            </div>
+            <div class="actions">
+              <%= f.submit "Sign up", style: "width: 50%; float: left" %><br>
+            </div>
+          <% end %>
+          <div class="actions", style="width: 50%; text-align: center">
+            <hr><%= render "devise/shared/links" %>
+          </div>
+				</div>
+				<span class="image object">
+					<img src="../images/pic10.jpg" alt="" />
+				</span>
+			</section>
+		<!-- Footer -->
+			<footer id="footer">
+				<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+			</footer>
+	</div>
+</div>

@@ -1,24 +1,69 @@
-<p id="notice"><%= notice %></p>
+<div id="main">
+	<div class="inner">
+		<header id="header">
+			<p><%= @post.tag %></p>
+		</header>
+  	<!-- Content -->
+  	<section>
+  		<header class="main">
+  			<h1><%= @post.title %></h1>
+  		</header>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+			<p><img src="<%= @post.image.small %>"></p>
+  		<p><%= @post.content %></p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
+  		<hr class="major" />
+			<%= link_to 'Edit', edit_post_path(@post), class: "button" %>
+			<%= link_to 'Back', posts_path, class: "button" %>
+  	</section>
+  </div>
+</div>
+<!-- Sidebar -->
+<div id="sidebar">
+	<div class="inner">
+		<section id="search" class="alt">
+			<form method="post" action="#">
+				<input type="text" name="query" id="query" placeholder="Search" />
+			</form>
+		</section>
+		<nav id="menu">
+			<header class="major">
+				<h2>Menu</h2>
+			</header>
+			<ul>
+				<li><%= link_to "로그아웃", destroy_user_session_path, method: :delete %></li>
+				<li>
+					<span class="opener">Submenu</span>
+					<ul>
+						<li><a href="#">Lorem Dolor</a></li>
+						<li><a href="#">Ipsum Adipiscing</a></li>
+						<li><a href="#">Tempus Magna</a></li>
+						<li><a href="#">Feugiat Veroeros</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Etiam Dolore</a></li>
+				<li><a href="#">Adipiscing</a></li>
+				<li>
+					<span class="opener">Another Submenu</span>
+					<ul>
+						<li><a href="#">Lorem Dolor</a></li>
+						<li><a href="#">Ipsum Adipiscing</a></li>
+						<li><a href="#">Tempus Magna</a></li>
+						<li><a href="#">Feugiat Veroeros</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Maximus Erat</a></li>
+				<li><a href="#">Sapien Mauris</a></li>
+				<li><a href="#">Amet Lacinia</a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
 
-<p>
-  <strong>Tag:</strong>
-  <%= @post.tag %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <img src="<%= @post.image.small %>">
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<!-- Scripts -->
+<!--<link rel="stylesheet" href="../assets/css/main.css" />-->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/skel.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="../assets/js/main.js"></script>

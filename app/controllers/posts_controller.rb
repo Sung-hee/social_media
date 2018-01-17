@@ -1,5 +1,10 @@
 class PostsController < ApplicationController
+  before_action :authorize
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  
+  def authorize # 로그인 되었는지 판별해라
+    redirect_to '/users/sign_in' unless current_user
+  end
 
   # GET /posts
   # GET /posts.json

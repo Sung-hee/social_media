@@ -1,34 +1,76 @@
-<p id="notice"><%= notice %></p>
+<div id="main">
+	<div class="inner">
+		<!-- Header -->
+		<header id="header">
+			<p class: "logo"><strong>Editorial</strong><%= link_to "새글쓰기", new_post_path, class: "button", style: "float: right;" %></p>
+		</header>
+	  <!-- Section -->
+		<section>
+			<div class="posts">
+				<% @posts.each do |post| %>
+				<article>
+					<img src="<%= post.image.small %>"width: 300px>
+					<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
+					<h3><%= post.title %></h3>
+					<p><%= post.user_id %></p>
 
-<h1>Listing Posts</h1>
+					<p><%= post.content %></p>
+					<ul class="actions">
+						<li><%= link_to 'More', post, class: "button" %></li>
+						<!--<li><a href="#" class="button">More</a></li>-->
+					</ul>
+				</article>
+				<% end %>
+			</div>
+		</section>
+	</div>
+</div>
+<!-- Sidebar -->
+<div id="sidebar">
+	<div class="inner">
+		<section id="search" class="alt">
+			<form method="post" action="#">
+				<input type="text" name="query" id="query" placeholder="Search" />
+			</form>
+		</section>
+		<nav id="menu">
+			<header class="major">
+				<h2>Menu</h2>
+			</header>
+			<ul>
+				<li><%= link_to "로그아웃", destroy_user_session_path, method: :delete %></li>
+				<li>
+					<span class="opener">Submenu</span>
+					<ul>
+						<li><a href="#">Lorem Dolor</a></li>
+						<li><a href="#">Ipsum Adipiscing</a></li>
+						<li><a href="#">Tempus Magna</a></li>
+						<li><a href="#">Feugiat Veroeros</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Etiam Dolore</a></li>
+				<li><a href="#">Adipiscing</a></li>
+				<li>
+					<span class="opener">Another Submenu</span>
+					<ul>
+						<li><a href="#">Lorem Dolor</a></li>
+						<li><a href="#">Ipsum Adipiscing</a></li>
+						<li><a href="#">Tempus Magna</a></li>
+						<li><a href="#">Feugiat Veroeros</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Maximus Erat</a></li>
+				<li><a href="#">Sapien Mauris</a></li>
+				<li><a href="#">Amet Lacinia</a></li>
+			</ul>
+		</nav>
+	</div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th>User</th>
-      <th>Photo</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.title %></td>
-        <td><%= post.content %></td>
-        <td><%= post.user_id %></td>
-        <td><img src="<%= post.image.small %>"></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Post', new_post_path %>
+<!-- Scripts -->
+<!--<link rel="stylesheet" href="../assets/css/main.css" />-->
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/skel.min.js"></script>
+<script src="../assets/js/util.js"></script>
+<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+<script src="../assets/js/main.js"></script>
