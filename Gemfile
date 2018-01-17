@@ -10,6 +10,7 @@ gem "mini_magick"
 # gem 'pg'
 gem "fog-aws"
 gem 'figaro'
+gem 'fog'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.9'
