@@ -1,0 +1,8 @@
+alert("좋아요 버튼 누름");
+var like_count = parseInt($('#like-count').text());
+if(<%= @like.frozen? %>) {
+  $('#like-count').text(like_count - 1);
+}
+else {
+  $('#like-count').text(like_count + 1);
+}

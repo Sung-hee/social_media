@@ -1,0 +1,9 @@
+$('.comment-list').prepend(`
+    <tr id="comment-<%= @comment.id %>">
+      <td><%= @comment.user.email %></td>
+      <td class="comment" data-id="<%= @comment.id %>"><%= @comment.contents %></td>
+      <td></td>
+      <td><button class="delete-comment" data-id="<%= @comment.id %>">삭제</button></td>
+    </tr>
+  `);
+$('#comment-input').val('');

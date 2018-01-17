@@ -11,11 +11,41 @@
 
 			<p><img src="<%= @post.image.small %>"></p>
   		<p><%= @post.content %></p>
-
-  		<hr class="major" />
+			<hr>
 			<%= link_to 'Edit', edit_post_path(@post), class: "button" %>
 			<%= link_to 'Back', posts_path, class: "button" %>
-  	</section>
+			<button type="button" class="like" style="float: left">좋아요(<span id="like-count"><%= @post.likes.count %></span>)</button>
+			</section>
+			<!-- <form id="comment-form">
+			  <input id="comment-input" type="text" placeholder="Comment">
+			  <button type="submit">댓글쓰기</button>
+			</form> -->
+			<form id="comment-form">
+				<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+			  <input id="comment-input" type="text" placeholder="Comment">
+			  <button type="submit">댓글쓰기</button>
+			</form>
+			<table class="table">
+				<thead>
+					<tr>
+						<th width="20%">유저</th>
+						<th width="50%">내용</th>
+					</tr>
+				</thead>
+				<tbody class="comment-list">
+			    <% @post.comments.reverse.each do |comment| %>
+			      <tr id="comment-<%= comment.id %>">
+			        <td><%= comment.user.email %></td>
+			        <td class="comment" data-id="<%= comment.id %>"><%= comment.contents %></td>
+			        <% if (current_user.id == comment.user.id) %>
+			          <td><button class="delete-comment" data-id="<%= comment.id %>">삭제</button></td>
+			        <% else %>
+			          <td></td>
+			        <% end %>
+			      </tr>
+			    <% end %>
+			  </tbody>
+			</table>
   </div>
 </div>
 <!-- Sidebar -->
@@ -59,7 +89,43 @@
 		</nav>
 	</div>
 </div>
+<% content_for :script do %>
+  <script>
+    $(function() {
+      //좋아요
+      $('.like').on('click', function(){
+        $.ajax({
+          url: '/posts/<%= @post.id %>/like',
+          method: "GET"
+        });
+      });
 
+      //댓글 작성
+      $('#comment-form').on('submit', function(e) {
+        e.preventDefault();
+        var value = $('#comment-input').val();
+				console.log($('#comment-input').val());
+        $.ajax({
+          url: '/posts/<%= @post.id %>/comments',
+          method: 'POST',
+          data: {
+            contents: value
+          }
+        });
+				console.log('/posts/<%= @post.id %>/comments');
+      });
+
+      // 댓글 삭제
+      $('.comment-list').on('click', '.delete-comment', function() {
+        var id = $(this).data('id');
+        $.ajax({
+          url: '/posts/<%= @post.id %>/comments/' + id,
+          method: "DELETE"
+        });
+      });
+    })
+  </script>
+<% end %>
 <!-- Scripts -->
 <!--<link rel="stylesheet" href="../assets/css/main.css" />-->
 <script src="../assets/js/jquery.min.js"></script>

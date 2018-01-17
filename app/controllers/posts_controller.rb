@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :authorize
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  # skip_before_action :verify_authenticity_token, only: [:show]
 
   def authorize # 로그인 되었는지 판별해라
     redirect_to '/users/sign_in' unless current_user
@@ -9,14 +11,19 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    # @posts = Post.all
-    @posts = Post.where("tag LIKE ?", "%#{params["q"]}%") # 태그로 검색한거만 보여줌
+    @posts = Post.all
+    # @posts = Post.where("tag LIKE ?", "%#{params["q"]}%") # 태그로 검색한거만 보여줌
   end
 
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @posts = Post.all
+    # @posts = Post.all
+    if user_signed_in?
+      @like = Like.where(user_id: current_user.id, post_id: params[:id])
+    else
+      @like = []
+    end
   end
 
   # GET /posts/new
@@ -32,7 +39,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    # @post.user_id = current_user.id
+    @post.user_id = current_user.id
 
     respond_to do |format|
       if @post.save
@@ -66,6 +73,36 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def user_like_post
+    @like = Like.where(user_id: current_user.id, post_id: params[:post_id]).first
+
+    unless @like.nil?
+      @like.destroy
+      puts '좋아요 취소'
+
+    else
+      @like = Like.create(user_id: current_user.id, post_id: params[:post_id])
+      puts '좋아요 누름'
+    end
+  end
+
+  def create_comment
+    @comment = Comment.create(
+      user_id: current_user.id,
+      post_id: params[:id],
+      contents: params[:contents]
+    )
+  end
+
+  def delete_comment
+    @comment = Comment.find(params[:comment_id])
+    if @comment.destroy
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
