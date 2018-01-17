@@ -4,9 +4,26 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+  # Delete All of the Post
     @posts = Post.all
-  end
+    # Post.where(['created_at < ?', 30.seconds.ago]).destroy_all
+  # Plus like
 
+    std_time = 30.seconds
+    plus_time = 10
+
+    post = Post.where(['created_at < ?', std_time.seconds.ago])
+
+    post.each do |post|
+      if post.likes != nil
+        like_count = post.likes.count
+        total_time = std_time + (like_count * plus_time)
+        Post.where(['created_at < ?', total_time.seconds.ago]).destroy_all
+      else
+        post.destroy
+      end
+    end
+  end
   # GET /posts/1
   # GET /posts/1.json
   def show
