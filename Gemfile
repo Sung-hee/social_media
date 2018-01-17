@@ -7,7 +7,7 @@ gem 'pry-rails'
 gem 'meta_request'
 gem 'devise-i18n'
 gem "mini_magick"
-gem 'pg'
+# gem 'pg'
 gem "fog-aws"
 gem 'figaro'
 
