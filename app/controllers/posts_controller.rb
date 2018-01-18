@@ -14,11 +14,12 @@ class PostsController < ApplicationController
     @posts = Post.where("tag LIKE ?", "%#{params["q"]}%").reverse # 태그로 검색한거만 보여줌
     # Post.where(['created_at < ?', 30.seconds.ago]).destroy_all
     # Plus like
-    std_time = 30.seconds
+    std_time = 30
     plus_time = 10
 
     post = Post.where(['created_at < ?', std_time.seconds.ago])
 
+    #삭제기능
     post.each do |post|
       if post.likes != nil
         like_count = post.likes.count
@@ -27,6 +28,15 @@ class PostsController < ApplicationController
       else
         post.destroy
       end
+    end
+
+    #삭제 알림
+    delete_time = std_time - 10
+    @delete_msg = false
+    delete_post = Post.where(['created_at < ?', delete_time.seconds.ago])
+
+    delete_post.each do |post|
+      @delete_msg = true
     end
   end
 

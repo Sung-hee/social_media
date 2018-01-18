@@ -18,6 +18,11 @@
 					<img src="<%= post.image.small %>"width: 300px>
 					<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
 					<h3><%= post.title %></h3>
+					<p>
+						<% if @delete_msg == true%>
+							<a><i class="fas fa-tint"></i>녹는 중...</a>
+						<%end%>
+					</p>
 					<p><%= post.content %></p>
 					<ul class="actions">
 						<li><%= link_to 'More', post, class: "button" %></li>

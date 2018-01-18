@@ -19,7 +19,12 @@
 			<hr>
 			<%= link_to 'Edit', edit_post_path(@post), class: "button" %>
 			<%= link_to 'Back', posts_path, class: "button" %>
-			<button type="button" class="like" style="float: left">좋아요(<span id="like-count"><%= @post.likes.count %></span>)</button>
+
+			<button type="button" class="like" style="float: left">
+				<i class="fas fa-snowflake" style="font-size:1.7em;"></i>   얼려요<span id="like-count"><%= @post.likes.count %></span>
+			</button>
+
+
 			</section>
 			<!-- <form id="comment-form">
 			  <input id="comment-input" type="text" placeholder="Comment">

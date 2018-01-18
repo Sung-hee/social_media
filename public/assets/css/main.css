@@ -2107,13 +2107,13 @@
 		-ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
 		border-bottom: dotted 1px;
-		color: #2E64FE;
+		color: #33ABD6;
 		text-decoration: none;
 	}
 
 		a:hover {
-			border-bottom-color: #2E64FE;
-			color: #2E64FE !important;
+			border-bottom-color: #33ABD6;
+			color: #33ABD6 !important;
 		}
 
 			a:hover strong {
@@ -2202,13 +2202,13 @@
 	}
 
 	sub {
-		font-size: 0.8em;
+		font-size: 1em;
 		position: relative;
 		top: 0.5em;
 	}
 
 	sup {
-		font-size: 0.8em;
+		font-size: 1em;
 		position: relative;
 		top: -0.5em;
 	}
@@ -2275,14 +2275,15 @@
 	header p {
 		font-family: "Roboto Slab", serif;
 		font-size: 1em;
-		font-weight: 400;
+		font-weight: 600;
+		line-height: 20px;
 		letter-spacing: 0.075em;
 		margin-top: -0.5em;
 		text-transform: uppercase;
 	}
 
 	header.major > :last-child {
-		border-bottom: solid 3px #2E64FE;
+		border-bottom: solid 3px #33ABD6;
 		display: inline-block;
 		margin: 0 0 2em 0;
 		padding: 0 0.75em 0.5em 0;
@@ -2349,8 +2350,8 @@
 		input[type="url"]:focus,
 		select:focus,
 		textarea:focus {
-			border-color: #2E64FE;
-			box-shadow: 0 0 0 1px #2E64FE;
+			border-color: #33ABD6;
+			box-shadow: 0 0 0 1px #33ABD6;
 		}
 
 	.select-wrapper {
@@ -2463,8 +2464,8 @@
 
 		input[type="checkbox"]:focus + label:before,
 		input[type="radio"]:focus + label:before {
-			border-color: #2E64FE;
-			box-shadow: 0 0 0 1px #2E64FE;
+			border-color: #33ABD6;
+			box-shadow: 0 0 0 1px #33ABD6;
 		}
 
 	input[type="checkbox"] + label:before {
@@ -2697,7 +2698,7 @@
 				}
 
 				ul.contact li:before {
-					color: #2E64FE;
+					color: #33ABD6;
 					display: inline-block;
 					font-size: 1.5em;
 					height: 1.125em;
@@ -2810,7 +2811,7 @@
 					border-bottom: 0;
 					border-radius: 0.375em;
 					display: inline-block;
-					font-size: 0.8em;
+					font-size: 1em;
 					font-weight: 600;
 					height: 2em;
 					line-height: 2em;
@@ -2821,7 +2822,7 @@
 				}
 
 					ul.pagination li > .page.active {
-						background-color: #2E64FE;
+						background-color: #33ABD6;
 						color: #ffffff !important;
 					}
 
@@ -2953,13 +2954,13 @@
 		background-color: transparent;
 		border-radius: 0.375em;
 		border: 0;
-		box-shadow: inset 0 0 0 2px #2E64FE;
-		color: #2E64FE !important;
+		box-shadow: inset 0 0 0 2px #33ABD6;
+		color: #33ABD6 !important;
 		cursor: pointer;
 		display: inline-block;
 		font-family: "Roboto Slab", serif;
 		float: right;
-		font-size: 0.8em;
+		font-size: 1em;
 		font-weight: 700;
 		height: 3.5em;
 		letter-spacing: 0.075em;
@@ -3028,7 +3029,7 @@
 		input[type="button"].special,
 		button.special,
 		.button.special {
-			background-color: #2E64FE;
+			background-color: #33ABD6;
 			box-shadow: none;
 			color: #ffffff !important;
 		}
@@ -3148,7 +3149,7 @@
 			}
 
 				.features article .icon:before {
-					color: #2E64FE;
+					color: #33ABD6;
 					font-size: 2.75rem;
 					position: relative;
 					top: 0.05em;
@@ -3794,7 +3795,7 @@
 		display: -webkit-flex;
 		display: -ms-flex;
 		display: flex;
-		border-bottom: solid 5px #2E64FE;
+		border-bottom: solid 5px #33ABD6;
 		padding: 6em 0 1em 0;
 		position: relative;
 	}
@@ -3871,6 +3872,7 @@
 			-ms-flex-shrink: 1;
 			flex-shrink: 1;
 			width: 50%;
+			margin-left: 10%
 		}
 
 		#banner .image {
@@ -3898,6 +3900,7 @@
 				-ms-object-position: center;
 				object-position: center;
 				width: 100%;
+				margin-left: -10%;
 			}
 
 		@media screen and (orientation: portrait) {
@@ -3989,7 +3992,7 @@
 		}
 
 			#menu ul a:hover, #menu ul span:hover {
-				color: #2E64FE;
+				color: #33ABD6;
 			}
 
 			#menu ul a.opener, #menu ul span.opener {
@@ -4023,7 +4026,7 @@
 				}
 
 				#menu ul a.opener:hover:before, #menu ul span.opener:hover:before {
-					color: #2E64FE;
+					color: #33ABD6;
 				}
 
 				#menu ul a.opener.active + ul, #menu ul span.opener.active + ul {
@@ -4051,7 +4054,7 @@
 		}
 
 			#menu > ul > li > ul a, #menu > ul > li > ul span {
-				font-size: 0.8em;
+				font-size: 1em;
 			}
 
 			#menu > ul > li > ul > li {

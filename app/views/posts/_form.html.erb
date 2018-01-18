@@ -12,20 +12,21 @@
   <% end %>
   <div class="row uniform">
     <div class="12u 12u$(xsmall)">
-      <%= f.label :title%><br>
+      <%= f.label :title%>
       <%= f.text_field :title, style: "width: 100%" %>
     </div>
     <div class="12u$">
-      <%= f.label :content %><br>
+      <%= f.label :content %>
       <%= f.text_area :content, rows: "10" %>
     </div>
     <div class="12u$">
-      <%= f.label :tag %><br>
+      <%= f.label :tag %>
       <%= f.text_field :tag %>
     </div>
     <div class="12u$">
-      <%= f.label :content %><br>
-      <%= f.file_field :image %>
+      <%= f.label :image %>
+      <%= f.file_field :image%>
+      <!-- <i class: "icon fa-search"></i> -->
     </div>
     <div class="12u$">
       <%= f.submit class: "actions" %>
