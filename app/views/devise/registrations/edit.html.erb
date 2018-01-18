@@ -27,6 +27,8 @@
               <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
             <% end %>
 
+						<%= f.input :username, required:true %>
+
             <div class="field">
               <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
               <%= f.password_field :password, autocomplete: "off" %>
