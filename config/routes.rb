@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
     collection do
       get '/:post_id/like' => 'posts#user_like_post', as: :user_like
+      get '/posts/my_feed' => 'posts#my_feed', as: :my_feed
     end
   end
   root 'posts#index'

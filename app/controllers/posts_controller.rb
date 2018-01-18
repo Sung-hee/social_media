@@ -30,6 +30,9 @@ class PostsController < ApplicationController
     end
   end
 
+  def my_feed
+    @posts = Post.where(user_id: current_user.id)
+  end
   # GET /posts/1
   # GET /posts/1.json
   def show
