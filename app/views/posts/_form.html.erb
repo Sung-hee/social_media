@@ -12,19 +12,19 @@
   <% end %>
   <div class="row uniform">
     <div class="12u 12u$(xsmall)">
-      <%= f.label :title%>
-      <%= f.text_field :title, style: "width: 100%" %>
+      <%= f.label :제목%>
+      <%= f.text_field :title, style: "width: 100%", placeholder: "제목을 입력하세요."%>
     </div>
     <div class="12u$">
-      <%= f.label :content %>
+      <%= f.label :내용 %>
       <%= f.text_area :content, rows: "10" %>
     </div>
     <div class="12u$">
-      <%= f.label :tag %>
+      <%= f.label :태그 %>
       <%= f.text_field :tag %>
     </div>
     <div class="12u$">
-      <%= f.label :image %>
+      <%= f.label :이미지 %>
       <%= f.file_field :image%>
       <!-- <i class: "icon fa-search"></i> -->
     </div>

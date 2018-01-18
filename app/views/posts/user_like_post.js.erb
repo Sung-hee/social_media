@@ -1,8 +1,9 @@
-alert("좋아요 버튼 누름");
 var like_count = parseInt($('#like-count').text());
 if(<%= @like.frozen? %>) {
   $('#like-count').text(like_count - 1);
+  alert("글의 기온이 +1℃ 올라갔습니다.");
 }
 else {
   $('#like-count').text(like_count + 1);
+  alert("글의 기온이 -1℃ 내려갔습니다.");
 }

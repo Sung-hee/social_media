@@ -2,7 +2,7 @@
 	<div class="inner">
 		<!-- Header -->
 		<header id="header">
-			<p class: "logo"><strong>Editorial</strong>
+			<img src="../../images/header.png" alt="" />
 			<section id="search" class="alt">
 				<form action="/">
 					<input type="text" name="q" id="query" placeholder="#태그검색" style="width: 50%; float: right" />
@@ -34,12 +34,12 @@
 	<div class="inner">
 		<nav id="menu">
 			<header class="major">
-				<h2>Menu</h2>
+				<h2>내 페이지</h2>
 			</header>
 			<ul>
-				<li><%= current_user.username %></li>
+				<li><%= current_user.username %>님 환영합니다.</li>
 				<li><%= link_to "홈으로", root_path %></li>
-				<li><%= link_to "MY 피드", my_feed_posts_path %></li>
+				<li><%= link_to "내 피드", my_feed_posts_path %></li>
 				<li><%= link_to "로그아웃", destroy_user_session_path, method: :delete %></li>
 			</ul>
 		</nav>

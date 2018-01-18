@@ -1,7 +1,7 @@
 <div id="main">
 	<div class="inner">
 		<header id="header">
-			<p><%= @post.tag %></p>
+			<img src="../images/header.png" alt="" />
 			<section id="search" class="alt">
 				<form method="post" action="#">
 					<input type="text" name="query" id="query" placeholder="#태그검색" style="width: 50%; float: right" />
@@ -16,32 +16,21 @@
 
 			<p><img src="<%= @post.image.small %>"></p>
   		<p><%= @post.content %></p>
-			<hr>
+			<p><%= @post.tag %></p>
 			<%= link_to 'Edit', edit_post_path(@post), class: "button" %>
 			<%= link_to 'Back', posts_path, class: "button" %>
 
 			<button type="button" class="like" style="float: left">
 				<i class="fas fa-snowflake" style="font-size:1.7em;"></i>   얼려요<span id="like-count"><%= @post.likes.count %></span>
 			</button>
-
-
 			</section>
-			<!-- <form id="comment-form">
-			  <input id="comment-input" type="text" placeholder="Comment">
-			  <button type="submit">댓글쓰기</button>
-			</form> -->
+			<hr>
 			<form id="comment-form">
 				<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 			  <input id="comment-input" type="text" placeholder="Comment">
 			  <button type="submit">댓글쓰기</button>
 			</form>
 			<table class="table">
-				<thead>
-					<tr>
-						<th width="20%">유저</th>
-						<th width="50%">내용</th>
-					</tr>
-				</thead>
 				<tbody class="comment-list">
 			    <% @post.comments.reverse.each do |comment| %>
 			      <tr id="comment-<%= comment.id %>">
@@ -63,12 +52,12 @@
 	<div class="inner">
 		<nav id="menu">
 			<header class="major">
-				<h2>Menu</h2>
+				<h2>내 페이지</h2>
 			</header>
 			<ul>
-				<li><%= current_user.username %></li>
+				<li><%= current_user.username %>님 환영합니다.</li>
 				<li><%= link_to "홈으로", root_path %></li>
-				<li><%= link_to "MY 피드", my_feed_posts_path %></li>
+				<li><%= link_to "내 피드", my_feed_posts_path %></li>
 				<li><%= link_to "로그아웃", destroy_user_session_path, method: :delete %></li>
 			</ul>
 		</nav>
