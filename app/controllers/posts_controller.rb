@@ -10,8 +10,9 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     # @posts = Post.all
-    @posts = Post.where("tag LIKE ?", "%#{params["q"]}%") # 태그로 검색한거만 보여줌
+    @posts = Post.where("tag LIKE ?", "%#{params["q"]}%").reverse # 태그로 검색한거만 보여줌
   end
+
 
   # GET /posts/1
   # GET /posts/1.json

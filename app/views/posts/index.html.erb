@@ -1,9 +1,14 @@
+
 <div id="main">
 	<div class="inner">
 		<!-- Header -->
 		<header id="header">
 			<p class: "logo"><strong>Editorial</strong><%= link_to "새글쓰기", new_post_path, class: "button", style: "float: right;" %></p>
 		</header>
+		<form action="/">
+		  태그 : <input name="q" type="search" placeholder="태그 검색" aria-label="태그 검색">
+		  <button type="submit">검색하기</button>
+		</form>
 	  <!-- Section -->
 		<section>
 			<div class="posts">
@@ -13,7 +18,6 @@
 					<!-- <a href="#" class="image"><img src="images/pic01.jpg" alt="" /></a> -->
 					<h3><%= post.title %></h3>
 					<p><%= post.user_id %></p>
-
 					<p><%= post.content %></p>
 					<ul class="actions">
 						<li><%= link_to 'More', post, class: "button" %></li>
@@ -25,6 +29,7 @@
 		</section>
 	</div>
 </div>
+
 <!-- Sidebar -->
 <div id="sidebar">
 	<div class="inner">
@@ -63,9 +68,20 @@
 				<li><a href="#">Sapien Mauris</a></li>
 				<li><a href="#">Amet Lacinia</a></li>
 			</ul>
+
 		</nav>
+		<form action="/">
+			<button type="submit" value="음식" name="q">음식</button>
+			<button type="submit" value="로봇" name="q">로봇</button>
+			<button type="submit" value="3" name="q">태그 3</button>
+			<button type="submit" value="4" name="q">태그 4</button>
+			<button type="submit" value="5" name="q">태그 5</button>
+			<button type="submit" value="동물" name="q">동물</button>
+		</form>
 	</div>
+
 </div>
+
 
 <!-- Scripts -->
 <!--<link rel="stylesheet" href="../assets/css/main.css" />-->

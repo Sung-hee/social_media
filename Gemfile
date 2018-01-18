@@ -11,6 +11,9 @@ gem "mini_magick"
 gem "fog-aws"
 gem 'figaro'
 gem 'fog'
+gem 'kaminari' # pagination
+gem 'bootstrap'
+gem 'faker' # Generate Fake data
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.9'
