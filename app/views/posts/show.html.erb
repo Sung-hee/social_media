@@ -61,7 +61,7 @@
 				<h2>Menu</h2>
 			</header>
 			<ul>
-				<li><%= current_user.email %></li>
+				<li><%= current_user.username %></li>
 				<li><%= link_to "홈으로", root_path %></li>
 				<li><%= link_to "MY 피드", my_feed_posts_path %></li>
 				<li><%= link_to "로그아웃", destroy_user_session_path, method: :delete %></li>

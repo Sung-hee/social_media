@@ -31,7 +31,7 @@ class PostsController < ApplicationController
   end
 
   def my_feed
-    @posts = Post.where(user_id: current_user.id)
+    @posts = Post.where(user_id: current_user.id).reverse
   end
   # GET /posts/1
   # GET /posts/1.json
