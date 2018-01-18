@@ -7,6 +7,7 @@ class CreatePosts < ActiveRecord::Migration
       t.integer :user_id
       t.string :image
       t.integer :total_time
+      t.boolean :status
 
       t.timestamps null: false
     end

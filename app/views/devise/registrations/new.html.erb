@@ -23,6 +23,11 @@
             </div>
 
             <div class="field">
+              <%= f.label :nickname %>
+              <%= f.text_field :username, required:true, style: "width: 50%", placeholder: "닉네임을 입력하세요." %>
+            </div>
+
+            <div class="field">
               <%= f.label :password %>
               <% if @minimum_password_length %>
               <em>(<%= @minimum_password_length %> characters minimum)</em>

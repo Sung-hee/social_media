@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20180118070218) do
     t.integer  "user_id"
     t.string   "image"
     t.integer  "total_time"
+    t.boolean  "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

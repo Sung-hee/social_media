@@ -14,12 +14,12 @@ class PostsController < ApplicationController
     @posts = Post.where("tag LIKE ?", "%#{params["q"]}%").reverse # 태그로 검색한거만 보여줌
     # Post.where(['created_at < ?', 30.seconds.ago]).destroy_all
     # Plus like
-    std_time = 30
-    plus_time = 30
-    pre_std_time = std_time-20
+    std_time = 2
+    plus_time = 1
+    pre_std_time = std_time-1
 
     # 기존 일정보다 하루 더 빨리
-    post = Post.where(['created_at < ?', pre_std_time.seconds.ago])
+    post = Post.where(['created_at < ?', pre_std_time.minutes.ago])
 
     #삭제
     post.each do |post|
@@ -28,23 +28,28 @@ class PostsController < ApplicationController
         like_count = post.likes.count
         tmp_total_time = std_time + (like_count * plus_time)
         post.update(total_time: tmp_total_time)
-        Post.where(['created_at < ?', post.total_time.seconds.ago]).destroy_all
+        Post.where(['created_at < ?', post.total_time.minutes.ago]).destroy_all
       else
         # post.destroy
         post.update(total_time: std_time)
-        Post.where(['created_at < ?', std_time.seconds.ago]).destroy_all
+        Post.where(['created_at < ?', std_time.minutes.ago]).destroy_all
       end
 
 
       #삭제알림
-      delete_time = post.total_time - 20
+      delete_time = post.total_time - 1
 
-      @delete_msg = false
+      # @delete_msg = false
+      status = false
 
-      delete_post = Post.where(['created_at < ?', delete_time.seconds.ago])
+      post.update(status: status)
+
+      delete_post = Post.where(['created_at < ?', delete_time.minutes.ago])
 
       delete_post.each do |post|
-        @delete_msg = true
+        # @delete_msg = true
+        status = true
+        post.update(status: status)
       end
     end
   end

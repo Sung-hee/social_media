@@ -30,6 +30,6 @@ class User < ActiveRecord::Base
   end
 
   def create_user_name
-    self.username = Faker::Superhero.name
+    # self.username = Faker::Superhero.name
   end
 end

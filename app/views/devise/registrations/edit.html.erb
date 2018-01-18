@@ -26,6 +26,10 @@
             <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
               <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
             <% end %>
+            
+            <div class="field">
+              <%= f.input :username, required:true, style: "width: 50%", placeholder: "닉네임을 입력하세요." %>
+            </div>
 
             <div class="field">
               <%= f.label :password %> <i>(leave blank if you don't want to change it)</i>
