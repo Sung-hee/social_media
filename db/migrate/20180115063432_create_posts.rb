@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration
       t.string :tag
       t.integer :user_id
       t.string :image
+      t.integer :total_time
 
       t.timestamps null: false
     end

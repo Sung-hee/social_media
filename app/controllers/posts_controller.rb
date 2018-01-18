@@ -15,28 +15,37 @@ class PostsController < ApplicationController
     # Post.where(['created_at < ?', 30.seconds.ago]).destroy_all
     # Plus like
     std_time = 30
-    plus_time = 10
+    plus_time = 30
+    pre_std_time = std_time-20
 
-    post = Post.where(['created_at < ?', std_time.seconds.ago])
+    # 기존 일정보다 하루 더 빨리
+    post = Post.where(['created_at < ?', pre_std_time.seconds.ago])
 
-    #삭제기능
+    #삭제
     post.each do |post|
+
       if post.likes != nil
         like_count = post.likes.count
-        total_time = std_time + (like_count * plus_time)
-        Post.where(['created_at < ?', total_time.seconds.ago]).destroy_all
+        tmp_total_time = std_time + (like_count * plus_time)
+        post.update(total_time: tmp_total_time)
+        Post.where(['created_at < ?', post.total_time.seconds.ago]).destroy_all
       else
-        post.destroy
+        # post.destroy
+        post.update(total_time: std_time)
+        Post.where(['created_at < ?', std_time.seconds.ago]).destroy_all
       end
-    end
 
-    #삭제 알림
-    delete_time = std_time - 10
-    @delete_msg = false
-    delete_post = Post.where(['created_at < ?', delete_time.seconds.ago])
 
-    delete_post.each do |post|
-      @delete_msg = true
+      #삭제알림
+      delete_time = post.total_time - 20
+
+      @delete_msg = false
+
+      delete_post = Post.where(['created_at < ?', delete_time.seconds.ago])
+
+      delete_post.each do |post|
+        @delete_msg = true
+      end
     end
   end
 
