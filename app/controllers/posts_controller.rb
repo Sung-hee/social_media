@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.where("tag LIKE ?", "%#{params["q"]}%").reverse # 태그로 검색한거만 보여줌
     # Post.where(['created_at < ?', 30.seconds.ago]).destroy_all
     # Plus like
     std_time = 30.seconds
