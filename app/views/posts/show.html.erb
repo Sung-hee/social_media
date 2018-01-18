@@ -2,6 +2,11 @@
 	<div class="inner">
 		<header id="header">
 			<p><%= @post.tag %></p>
+			<section id="search" class="alt">
+				<form method="post" action="#">
+					<input type="text" name="query" id="query" placeholder="#태그검색" style="width: 50%; float: right" />
+				</form>
+			</section>
 		</header>
   	<!-- Content -->
   	<section>
@@ -51,11 +56,6 @@
 <!-- Sidebar -->
 <div id="sidebar">
 	<div class="inner">
-		<section id="search" class="alt">
-			<form method="post" action="#">
-				<input type="text" name="query" id="query" placeholder="Search" />
-			</form>
-		</section>
 		<nav id="menu">
 			<header class="major">
 				<h2>Menu</h2>
