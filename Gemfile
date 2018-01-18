@@ -5,6 +5,9 @@ gem 'figaro'
 gem 'devise'
 # naver login
 gem 'omniauth-naver'
+
+# 회원 권한 기능
+gem 'cancancan', '~> 2.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.9'
 # Use sqlite3 as the database for Active Record

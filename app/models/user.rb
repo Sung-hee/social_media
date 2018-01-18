@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:naver]
   has_many :posts
-
+  before_validation :create_user_name
+  # before_validation :is_admin?
   # validates_uniqueness_of :username
 
   def self.from_omniauth(auth)
@@ -23,4 +24,10 @@ class User < ActiveRecord::Base
      end
    end
   end
+
+  def create_user_name
+    self.username = Faker::Superhero.name
+  end
+
+
 end

@@ -1,3 +1,5 @@
+### [yj_naver-login] 
+
 # Naver Login
 
 ## 0. gem file
@@ -109,6 +111,72 @@ devise :database_authenticatable, :registerable,
 ```
 # Ignore application configuration
 /config/application.yml
+```
+
+---
+
+### [yj_faker&admin]
+
+# faker
+
+## 0. gem file
+
+```
+# 회원 권한 기능
+gem 'cancancan', '~> 2.0'
+
+# faker
+gem 'faker'
+```
+
+## 1. db -> migrate -> 20180112062057_devise_create_users.rb
+
+```
+# username(nickname) 선언
+t.string :username,           null: false
+# admin 선언
+t.boolean :admin,             null: false, default: false
+```
+
+## 2. config -> routes.rb
+
+```
+Rails.application.routes.draw do
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks', sessions: 'users/sessions' } do
+  delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+ end
+```
+
+## 3. app -> models -> user.rb
+
+```
+before_validation :create_user_name
+----------------------------------------------------------------------------------
+def self.from_omniauth(auth)
+     user.username = Faker::Superhero.name
+end
+----------------------------------------------------------------------------------
+def create_user_name
+    self.username = Faker::Superhero.name
+end
+```
+
+## 4. app -> controllers -> application_controller.rb 
+
+```
+class ApplicationController < ActionController::Base
+  protect_from_forgery with: :exception
+
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+
+  def configure_permitted_parameters
+    added_attrs = [:username, :email, :password, :password_confirmation, :remember_me]
+    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
+    devise_parameter_sanitizer.permit :account_update, keys: added_attrs
+  end
+end
 ```
 
 
